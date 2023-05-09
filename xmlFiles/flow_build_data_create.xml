@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE concept PUBLIC "-//OASIS//DTD DITA Concept//EN"
+ "concept.dtd">
+<concept id="flow_build_data_create" xml:lang="en-us">
+  <title><ph id="topic-title">Create a Salesforce Record from a Flow</ph></title>
+  <shortdesc>To create a Salesforce record, use either the Create Records or Quick Action element.
+    The right element depends on what the rest of your flow is doing.</shortdesc>
+  <prolog>
+    <metadata>
+      <othermeta content="Salesforce_Platform" name="app_area"/>
+      <othermeta content="aloha sfx" name="ui_platform"/>
+      <othermeta content="Administrator Developer" name="role"/>
+      <othermeta content="ES PE EE PXE UE DE" name="edition"/>
+      <othermeta content="concept" name="topic_type"/>
+    </metadata>
+  </prolog>
+  <conbody>
+    <table
+      conref="../resource/process/flow_pb/flow_pb_edition_perm.xml#flow_pb_edition_perm/FireflyEdition"/>
+    <section>If you want to use a combination of the values from a record variable and values from
+      other resources (like single-value variables or screen input fields), use either a Create
+      Records or Quick Action element. Those two elements differ in these ways.<ul>
+        <li>Which fields are available in the elements</li>
+        <li>Whether the element provides any required fields for the object</li>
+        <li>Whether the element lets you store the new record’s ID<p>Storing the ID is useful, for
+            example, if you create an account and then want to create a contact that's associated
+            with that account (which you obviously need the ID for). </p></li>
+      </ul><table frame="all" rowsep="1" colsep="1">
+        <tgroup cols="4">
+          <colspec colname="c1" colnum="1" colwidth="1*"/>
+          <colspec colname="c2" colnum="2" colwidth="2.35*"/>
+          <colspec colname="c3" colnum="3" colwidth="1.97*"/>
+          <colspec colname="c4" colnum="4" colwidth="2.32*"/>
+          <thead>
+            <row>
+              <entry/>
+              <entry>Field Availability</entry>
+              <entry>Required Fields</entry>
+              <entry>New Record ID</entry>
+            </row>
+          </thead>
+          <tbody>
+            <row>
+              <entry><uicontrol>Create Records</uicontrol></entry>
+              <entry>Every field on the object. You manually select the object and every field you
+                want to have a value.</entry>
+              <entry>Not indicated</entry>
+              <entry>Lets you store the ID of the created record to use later in your flow.</entry>
+            </row>
+            <row>
+              <entry><uicontrol>Quick Action (of type Create)</uicontrol></entry>
+              <entry>Only fields that are included in the Quick Action layout. <p>If you supplied
+                  default values for certain fields when you created the quick action, those values
+                  are used when the record is created. </p></entry>
+              <entry>Indicated <p>Requiredness is based on what's marked required in the action
+                  layout.</p></entry>
+              <entry>Doesn’t let you store the created record's ID for use later. </entry>
+            </row>
+          </tbody>
+        </tgroup>
+      </table><note type="tip">Use a Quick Action element when all these statements are true.<ol>
+          <li>The action is of type Create.</li>
+          <li>The action’s layout includes all the fields that you want to update. </li>
+          <li>You don't need to reference the new record's ID later in the flow. </li>
+        </ol><p>Otherwise, use the Create Records element.</p></note></section>
+    <example>
+      <p>Here’s how you’d create a case when a customer’s satisfaction score is too low by using
+        each of the create elements.</p>
+      <table frame="all" rowsep="1" colsep="1">
+        <tgroup cols="2">
+          <colspec colname="c1" colnum="1" colwidth="1*"/>
+          <colspec colname="c2" colnum="2" colwidth="5.06*"/>
+          <tbody>
+            <row>
+              <entry><b>Create Records</b></entry>
+              <entry><image href="images/flow_recordcreate.png"
+                  alt="How you set the new record's values in a Create Records element"/><p>You can
+                  set any field on the record, but the Create Records element doesn’t know which
+                  fields are required for this object. </p></entry>
+            </row>
+            <row>
+              <entry><b>Quick Action (of type Create)</b></entry>
+              <entry><image href="images/flow_quickaction_create.png"
+                  alt="How you set the new record's values in a Quick Action (Create) core action"
+                  width="570px"/><p>These fields are the only fields that you can set for this
+                  element, because they’re the only ones available from the action
+                  layout.<!--Hidden. Verify if this sentence still true in FB: Contact ID is required by the associated action layout, so it’s required in this element. --></p></entry>
+            </row>
+          </tbody>
+        </tgroup>
+      </table>
+    </example>
+  </conbody>
+</concept>
+

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE concept PUBLIC "-//OASIS//DTD DITA Concept//EN"
+ "concept.dtd">
+<concept id="flow_build_actions_email" xml:lang="en-us">
+  <title>Options for Sending Emails from a Flow</title>
+  <shortdesc>To send an email from your flow, either use an existing email alert or create the email
+    in the flow.</shortdesc>
+  <prolog>
+    <metadata>
+      <othermeta content="Salesforce_Platform" name="app_area"/>
+      <othermeta content="aloha sfx" name="ui_platform"/>
+      <othermeta content="Administrator Developer" name="role"/>
+      <othermeta content="ES PE EE PXE UE DE" name="edition"/>
+      <othermeta content="task" name="topic_type"/>
+    </metadata>
+  </prolog>
+  <conbody>
+    <dl>
+      <dlentry>
+        <dt><xref href="flow_ref_elements_emailalert.xml" otherprops="nopage">Use an Email Alert
+            with an Email Alert Action</xref></dt>
+        <dd>Send an email by using an existing email alert that specifies the email content and
+          recipients. The flow provides only the record ID to use for the email alert. </dd>
+      </dlentry>
+      <dlentry>
+        <dt><xref href="flow_ref_elements_actions_sendemail.xml" otherprops="nopage">Create an Email
+            in a Flow with the Send Email Action</xref></dt>
+        <dd>Send and optionally log an email by specifying the email content and recipients in a
+          flow.</dd>
+      </dlentry>
+    </dl>
+  </conbody>
+</concept>

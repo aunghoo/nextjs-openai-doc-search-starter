@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE concept PUBLIC "-//OASIS//DTD DITA Concept//EN"
+ "concept.dtd">
+<concept id="flow_build_data_update" xml:lang="en-us">
+ <title><ph id="topic-title">Update Salesforce Records from a Flow</ph></title>
+ <shortdesc>To update field values on existing Salesforce records, use either the Update Records element or a Quick Action core action. The right element depends on what the rest of your flow is
+  doing.</shortdesc>
+ <prolog>
+  <metadata>
+   <othermeta content="Salesforce_Platform" name="app_area"/>
+   <othermeta content="aloha sfx" name="ui_platform"/>
+   <othermeta content="Administrator Developer" name="role"/>
+   <othermeta content="ES PE EE PXE UE DE" name="edition"/>
+   <othermeta content="concept" name="topic_type"/>
+  </metadata>
+ </prolog>
+ <conbody>
+  <table
+   conref="../resource/process/flow_pb/flow_pb_edition_perm.xml#flow_pb_edition_perm/FireflyEdition"/>
+  <example>
+   <p>On an opportunity record, when a user clicks the “Won” button, a flow updates the
+    opportunity’s stage.</p>
+  </example>
+  <section>
+   <p>To update fields on one or more existing Salesforce records, your flow:<ol>
+     <li>Identifies the records to update.</li>
+     <li>Identifies the new field values for those records. </li>
+     <li>Saves those changes to the Salesforce database. (In other words, until the changes are
+      saved to the database, the changes exist only within the flow.)</li>
+    </ol></p>
+  </section>
+  <section>
+   <title>How do I choose between flow elements that update records?</title>
+   <p>The main difference between the elements is how it knows which records to update, how it knows
+    the new field values to apply, and how many records it can update. </p>
+   <p>Quick Action elements can update only one record at a time, while Update Records elements can
+    update multiple records. </p>
+   <table frame="all" rowsep="1" colsep="1">
+    <tgroup cols="4">
+     <colspec colname="c1" colnum="1" colwidth="1*"/>
+     <colspec colname="c2" colnum="2" colwidth="2.14*"/>
+     <colspec colname="c3" colnum="3" colwidth="3.07*"/>
+     <colspec colname="c4" colnum="4" colwidth="1.4*"/>
+     <thead>
+      <row>
+       <entry/>
+       <entry>To identify records to update</entry>
+       <entry>To identify new field values for the records</entry>
+       <entry>Number of records it updates</entry>
+      </row>
+     </thead>
+     <tbody>
+      <row>
+       <entry><uicontrol>Update Records</uicontrol>, where you chose to specify conditions and set
+        fields individually</entry>
+       <entry>In the same element, use filter criteria.</entry>
+       <entry>In the same element, map each field that should be updated with a variable or other
+         resource.<p>All resources are supported, so long as the resource’s data type matches the
+         selected field’s data type. </p></entry>
+       <entry>At least one.</entry>
+      </row>
+      <row>
+       <entry><uicontrol>Update Records</uicontrol>, where you chose to use the IDs and field values
+        from a record variable or record collection variable</entry>
+       <entry>Populate a record variable or record collection variable in another element.</entry>
+       <entry>In another element, such as an Assignment element, update the values in the record
+        variable or record collection variable.</entry>
+       <entry>If an record variable: one.<p>If an record collection variable: at least
+        one.</p></entry>
+      </row>
+      <row>
+       <entry><b>Quick Action</b></entry>
+       <entry>Populate a single-value variable with the ID in another element. Use this ID for the
+        Related Record ID parameter.</entry>
+       <entry>In the same element, map each field that should be updated with a variable or other
+        resource. <p>All resources are supported, so long as the resource’s data type matches the
+         selected field’s data type.</p></entry>
+       <entry>Exactly one.</entry>
+      </row>
+     </tbody>
+    </tgroup>
+   </table>
+   <p>If all the following statements are true, use a Quick Action element:<ul>
+     <li>You need to update exactly one record</li>
+     <li>You’ve already populated a variable with the record’s ID</li>
+     <li>The Quick Action’s layout includes all the fields you need to update</li>
+    </ul></p>
+   <p>If any of those statements aren’t true, use an Update Records element.</p>
+  </section>
+  <example>
+   <p>Here’s how you’d update an opportunity’s stage by using each of the update elements.</p>
+   <table frame="all" rowsep="1" colsep="1">
+    <tgroup cols="2">
+     <colspec colname="c1" colnum="1" colwidth="1*"/>
+     <colspec colname="c2" colnum="2" colwidth="5.06*"/>
+     <tbody>
+      <row>
+       <entry><b>Update Records</b>, where you chose to specify conditions and set fields
+        individually</entry>
+       <entry><image href="images/flow_recordupdate.png"
+         alt="How you identify which records to update and what the new field values should be in a Update Records element"
+        /></entry>
+      </row>
+      <row>
+       <entry><b>Update Records</b>, where you chose to use the IDs and field values from a record
+        variable or record collection variable</entry>
+       <entry><image href="images/flow_fastupdate.png"
+         alt="How you identify which records to update and what the new field values should be in a Update Records element"
+         /><p>Assumes {!svarOpportunity} is already populated with the right fields.</p></entry>
+      </row>
+      <row>
+       <entry><b>Quick Action (of type Update)</b></entry>
+       <entry><image href="images/flow_quickaction_update.png"
+         alt="How you identify which records to update and what the new field values should be in a Quick Action (Update) element"
+         width="570px"/><p>Two fields are required by the associated action layout, so they’re
+         required in this element. Related Record ID identifies which opportunity to update.
+        </p></entry>
+      </row>
+     </tbody>
+    </tgroup>
+   </table>
+  </example>
+ </conbody>
+</concept>
+

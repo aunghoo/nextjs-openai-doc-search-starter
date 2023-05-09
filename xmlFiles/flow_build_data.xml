@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE concept PUBLIC "-//OASIS//DTD DITA Concept//EN"
+ "concept.dtd">
+<concept id="flow_build_data" xml:lang="en-us">
+  <title><ph id="topic-title">Working with Data in a Flow</ph></title>
+  <shortdesc>The real power of a flow is that it can automate updates to your data, whether the data
+    lives inside your Salesforce org or in an external database. In a flow, you can look up values
+    from records, connect to external systems, create records, update records, delete
+    records&#8212;the whole shebang! </shortdesc>
+  <prolog>
+    <metadata>
+      <othermeta content="Salesforce_Platform" name="app_area"/>
+      <othermeta content="aloha sfx" name="ui_platform"/>
+      <othermeta content="Administrator Developer" name="role"/>
+      <othermeta content="ES PE EE PXE UE DE" name="edition"/>
+      <othermeta content="concept" name="topic_type"/>
+    </metadata>
+  </prolog>
+  <conbody>
+    <table
+      conref="../resource/process/flow_pb/flow_pb_edition_perm.xml#flow_pb_edition_perm/FireflyEdition"/>
+  </conbody>
+</concept>
+
+

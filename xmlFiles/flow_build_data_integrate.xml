@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE reference PUBLIC "-//OASIS//DTD DITA Reference//EN"
+ "reference.dtd">
+<reference id="flow_build_data_integrate" xml:lang="en-us">
+  <title><ph id="topic-title">Integrate with External Systems from a Flow</ph></title>
+  <shortdesc>With Get Records elements, you can easily look up your Salesforce data in a flow. But
+    what if you need data that lives outside of Salesforce? To connect your flow to an external
+    database, use platform events, external objects, Lightning components,  External Services, or
+    Apex.</shortdesc>
+  <prolog>
+    <metadata>
+      <othermeta content="concept" name="topic_type"/>
+      <othermeta content="Salesforce_Platform" name="app_area"/>
+      <othermeta content="aloha sfx" name="ui_platform"/>
+      <othermeta content="Administrator Developer" name="role"/>
+      <othermeta content="ES PE EE PXE UE DE" name="edition"/>
+    </metadata>
+  </prolog>
+  <refbody>
+    <table id="FireflyEdition" otherprops="edition">
+      <tgroup cols="1">
+        <tbody>
+          <row>
+            <entry>Available in: both Salesforce Classic (<xref
+                href="../overview/overview_edition_lex_only.xml">not available in all orgs</xref>)
+              and Lightning Experience</entry>
+          </row>
+          <row id="FireflyEdition_noExperience">
+            <entry>Platform events, External Services, and Apex are available in: <b>Enterprise</b>,
+                <b>Performance</b>, <b>Unlimited</b>, and <b>Developer</b> Editions<p>Lightning
+                components are available in: <b><ph
+                    conref="../resource/process/flow_pb/flow_pb_edition_perm.xml#flow_pb_edition_perm/FireflyEdition_noExperience_ph"
+                  /></b></p></entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </table>
+    <section>
+      <dl>
+        <dlentry>
+          <dt>Platform Events</dt>
+          <dd>Deliver secure and expandable custom notifications within Salesforce or from external
+            sources by using platform events. To publish event messages from your flow, add a Create
+            Records element, where the specified object is the platform event. To subscribe to
+            messages, add a Pause element. </dd>
+        </dlentry>
+        <dlentry>
+          <dt>External Objects</dt>
+          <dd>Reference data that’s stored outside your Salesforce org by using external objects.
+            After you’ve mapped the external system to an external object in your org, use flow data
+            elements to get, create, or update data in the external system.</dd>
+        </dlentry>
+        <dlentry>
+          <dt>Custom Lightning Components</dt>
+          <dd>Connect to a database that’s behind your firewall without going through the Salesforce
+            server by calling a local action. All local actions appear in Flow Builder as Core
+            Action elements.</dd>
+        </dlentry>
+        <dlentry>
+          <dt>External Services</dt>
+          <dd>Connect to any external system without writing a line of code. You tell us which
+            endpoint and schema you want to use, and we generate Apex classes for you. The Apex
+            classes appear in Flow Builder as Apex actions. External Services supports OpenAPI 2.0
+            JSON schema format.</dd>
+        </dlentry>
+        <dlentry>
+          <dt>Apex</dt>
+          <dd>If you want more control, write your own Apex code to integrate with an external
+            system. To make your Apex code available in the Flow Builder, use either the <codeph
+              otherprops="apex_code">@InvocableMethod</codeph> annotation or the <codeph
+              otherprops="apex_code">Process.Plugin</codeph> interface.</dd>
+        </dlentry>
+      </dl>
+      <table>
+        <tgroup cols="6">
+          <colspec colnum="1" colname="col1" colwidth="2*"/>
+          <colspec colnum="2" colname="col2" colwidth="1*"/>
+          <colspec colnum="3" colname="col3" colwidth="1*"/>
+          <colspec colnum="4" colname="col4" colwidth="1*"/>
+          <colspec colnum="5" colname="col5" colwidth="1*"/>
+          <colspec colnum="6" colname="col6" colwidth="1*"/>
+          <thead>
+            <row>
+              <entry>Integration Option</entry>
+              <entry>Declarative</entry>
+              <entry>Server-Side</entry>
+              <entry>Client-Side</entry>
+              <entry>Synchronous</entry>
+              <entry>Asynchronous</entry>
+            </row>
+          </thead>
+          <tbody>
+            <row>
+              <entry>Platform events</entry>
+              <entry><image alt="Checkmark icon indicating true" href="../images/checkmark_16x16.png"
+                  scope="local"/></entry>
+              <entry><image alt="Checkmark icon indicating true" href="../images/checkmark_16x16.png"
+                  scope="local"/></entry>
+              <entry/>
+              <entry/>
+              <entry><image alt="Checkmark icon indicating true" href="../images/checkmark_16x16.png"
+                  scope="local"/></entry>
+            </row>
+            <row>
+              <entry>External objects</entry>
+              <entry><image alt="Checkmark icon indicating true" href="../images/checkmark_16x16.png"
+                  scope="local"/></entry>
+              <entry><image alt="Checkmark icon indicating true" href="../images/checkmark_16x16.png"
+                  scope="local"/></entry>
+              <entry/>
+              <entry><image alt="Checkmark icon indicating true" href="../images/checkmark_16x16.png"
+                  scope="local"/></entry>
+              <entry/>
+            </row>
+            <row>
+              <entry>Custom Lightning components</entry>
+              <entry/>
+              <entry/>
+              <entry><image alt="Checkmark icon indicating true" href="../images/checkmark_16x16.png"
+                  scope="local"/></entry>
+              <entry><image alt="Checkmark icon indicating true" href="../images/checkmark_16x16.png"
+                  scope="local"/></entry>
+              <entry><image alt="Checkmark icon indicating true" href="../images/checkmark_16x16.png"
+                  scope="local"/></entry>
+            </row>
+            <row>
+              <entry>External Services</entry>
+              <entry><image alt="Checkmark icon indicating true" href="../images/checkmark_16x16.png"
+                  scope="local"/></entry>
+              <entry><image alt="Checkmark icon indicating true" href="../images/checkmark_16x16.png"
+                  scope="local"/></entry>
+              <entry/>
+              <entry><image alt="Checkmark icon indicating true" href="../images/checkmark_16x16.png"
+                  scope="local"/></entry>
+              <entry/>
+            </row>
+            <row>
+              <entry>Apex</entry>
+              <entry/>
+              <entry><image alt="Checkmark icon indicating true" href="../images/checkmark_16x16.png"
+                  scope="local"/></entry>
+              <entry/>
+              <entry><image alt="Checkmark icon indicating true" href="../images/checkmark_16x16.png"
+                  scope="local"/></entry>
+              <entry><image alt="Checkmark icon indicating true" href="../images/checkmark_16x16.png"
+                  scope="local"/></entry>
+            </row>
+          </tbody>
+        </tgroup>
+      </table>
+    </section>
+  </refbody>
+</reference>
+
+

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE task PUBLIC "-//OASIS//DTD DITA Task//EN"
+ "task.dtd">
+<task id="flow_build_data_clone" 
+  xml:lang="en-us">
+  <title>Clone Records with a Create Records Element</title>
+  <shortdesc>A flow can clone records in your org. First, populate a record variable with an
+    existing record’s values. Identify fields that the running user can’t edit, and map all
+    remaining fields to another record variable. Then use the second record variable in a Create
+    Records element to clone the record. </shortdesc>
+  <prolog>
+    <metadata>
+      <othermeta content="Salesforce_Platform" name="app_area"/>
+      <othermeta content="aloha sfx" name="ui_platform"/>
+      <othermeta content="Developer Administrator" name="role"/>
+      <othermeta content="ES PE EE PXE UE DE" name="edition"/>
+      <othermeta content="task" name="topic_type"/>
+    </metadata>
+  </prolog>
+  <taskbody>
+    <prereq>
+      <table
+        conref="../resource/process/flow_pb/flow_pb_edition_perm.xml#flow_pb_edition_perm/FireflyEdition"/>
+      <table
+        conref="../resource/process/flow_pb/flow_pb_edition_perm.xml#flow_pb_edition_perm/flow_designer_perms"/>
+      <p>Before you begin, review <xref href="flow_considerations_readonlyfields.xml" scope="local"
+          otherprops="nopage" type="concept" format="dita"/></p>
+    </prereq>
+    <steps>
+      <step>
+        <cmd>Populate a record variable with the values from the existing record.</cmd>
+        <stepxmp>For example:<ul>
+            <li>Look up the record with a Get Records element.</li>
+            <li>Obtain the record from a Flows action in a process.</li>
+          </ul></stepxmp>
+      </step>
+      <step>
+        <cmd>In an Assignment element, copy the writable field values to a new record variable. </cmd>
+        <info>
+          <note type="important">Make sure that <parmname>Id</parmname> isn’t set in the new
+            variable.</note>
+        </info>
+      </step>
+      <step>
+        <cmd>Add a Create Records element to your flow. Choose to create one record and set the
+          record fields by using all the values from a record variable. Select the second record
+          variable to populate the values of the cloned record.</cmd>
+      </step>
+    </steps>
+  </taskbody>
+</task>
+

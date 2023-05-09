@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE reference PUBLIC "-//OASIS//DTD DITA Reference//EN"
+ "reference.dtd">
+<reference id="flow_browsers_supported" xml:lang="en-us">
+ <title>Browser Requirements</title>
+ <shortdesc> These are the web browsers supported by our automation tools.</shortdesc>
+ <prolog>
+  <metadata>
+   <othermeta content="Salesforce_Platform" name="app_area"/>
+   <othermeta content="aloha sfx" name="ui_platform"/>
+   <othermeta content="Administrator Developer" name="role"/>
+   <othermeta content="ES PE EE PXE UE DE" name="edition"/>
+   <othermeta content="reference" name="topic_type"/>
+  </metadata>
+ </prolog>
+ <refbody>
+  <section>
+   <dl>
+    <dlentry>
+     <dt>Supported Browsers</dt>
+     <dd>
+      <ul>
+       <li>Google Chrome&#x2122; (latest stable version)</li>
+       <li>Mozilla&#xae; Firefox&#xae; (latest stable version)</li>
+       <li>Microsoft® Edge (latest stable version)</li>
+       <li>Apple® Safari® (latest stable version)</li>
+      </ul>
+      <p>Microsoft® Internet Explorer® isn’t supported. </p>
+      <note>The browser vendor defines latest for their own browser. Check with your browser vendor
+       to determine the latest version available.</note>
+     </dd>
+    </dlentry>
+    <dlentry>
+     <dt>Screen Resolution</dt>
+     <dd>The minimum screen resolution required is 1024 x 768. We recommend using a width of at
+      least 1200. </dd>
+    </dlentry>
+   </dl>
+  </section>
+ </refbody>
+</reference>
