@@ -161,6 +161,9 @@ export default async function handler(req: NextRequest) {
     return new Response(response.body, {
       headers: {
         'Content-Type': 'text/event-stream',
+        'Access-Control-Allow-Origin': '*',
+        'Access-Control-Allow-Methods': 'GET,OPTIONS,PATCH,DELETE,POST,PUT',
+        'Access-Control-Allow-Headers': 'X-CSRF-Token, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version'
       },
     })
   } catch (err: unknown) {

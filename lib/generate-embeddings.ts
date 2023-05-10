@@ -193,7 +193,7 @@ async function walk(dir: string, parentPath?: string): Promise<WalkEntry[]> {
       const stats = await stat(path)
       if (stats.isDirectory()) {
         // Keep track of document hierarchy (if this dir has corresponding doc file)
-        const docPath = `${basename(path)}.mdx`
+        const docPath = `${basename(path)}.md`
 
         return walk(
           path,
